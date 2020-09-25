@@ -1,8 +1,19 @@
 server:
-  port: 8070
+  port: ${PORT:8070}
 
 
 spring:
   application:
     name: ConfigServer
-    
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/vineethmaller/springboot-configrepo.git
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
+          clone-on-start: true
+          search-paths:
+          - 'ws_user'
+          - 'api_gateway'
+          
