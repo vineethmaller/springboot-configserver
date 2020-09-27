@@ -16,11 +16,20 @@ spring:
           search-paths:
           - 'ws_user'
           - 'api_gateway'
+          - 'ws_discovery'
   rabbitmq:
     host: localhost
     port: 5672
     username: ${RABBITMQ_USER}
     password: ${RABBITMQ_PASS}
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+  
 
 management:
   endpoints:
