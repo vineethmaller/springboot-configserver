@@ -1,7 +1,7 @@
 server:
   port: ${PORT:8070}
 
-
+---
 spring:
   application:
     name: ConfigServer
@@ -16,4 +16,15 @@ spring:
           search-paths:
           - 'ws_user'
           - 'api_gateway'
-          
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: ${RABBITMQ_USER}
+    password: ${RABBITMQ_PASS}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - bus-refresh
